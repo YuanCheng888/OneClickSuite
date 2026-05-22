@@ -89,11 +89,9 @@
 
 ### Legal Documents
 
-| Module            | Screenshot Preview                                                 |
-| :-------------- | :----------------------------------------------------------- |
-| About Page       | ![About](public/images/screenshots/screenshot-about.png)     |
-| Terms of Service | ![Terms](public/images/screenshots/screenshot-terms.png)     |
-| Privacy Policy   | ![Privacy](public/images/screenshots/screenshot-privacy.png) |
+| About Page                                     | Terms of Service                                   | Privacy Policy                                     |
+| :-------------------------------------------- | :-------------------------------------------- | :---------------------------------------------- |
+| ![About](public/images/screenshots/screenshot-about.png) | ![Terms](public/images/screenshots/screenshot-terms.png) | ![Privacy](public/images/screenshots/screenshot-privacy.png) |
 
 ---
 
