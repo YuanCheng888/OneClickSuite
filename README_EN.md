@@ -22,7 +22,7 @@
 
 **OneClickSuite** is an **AI-powered product image generation platform** designed for e-commerce sellers. Upload a single product photo, and AI automatically generates a complete product image library, supporting major e-commerce platforms like Amazon, TEMU, Shopify, and TikTok Shop.
 
-> 🚀 **No design skills required. Zero learning curve. No studio needed. Save 90% on costs.**
+> 📚 **This project is for learning and communication purposes only, not a commercial product.**
 
 ## 🔗 Online Demo
 
@@ -166,9 +166,10 @@ Add/Delete Shots  → Freely add or delete shots
 | ⚖️ Comparison View    | Support old vs new version comparison           |
 
 ### 🔐 User System
-- Email verification login (secure, no password)
+- Email + password login (secure and reliable)
 - Password reset and profile management
-- Multi-language support (Chinese/English)
+- Multi-language support (Chinese/English, one-click switch in top-right corner)
+- Theme switching (Dark/Light mode, one-click switch in top-right corner)
 
 ### 📤 Asset Management
 - Support multiple image format uploads
