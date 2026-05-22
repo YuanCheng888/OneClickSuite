@@ -360,7 +360,7 @@ export default async function handler(req: any, res: any) {
       };
 
       // Try multiple models with fallback logic
-      let { data: models, error: modelsError } = await supabaseAdmin
+      const { data: models, error: modelsError } = await supabaseAdmin
         .from('mode_models')
         .select('model_name')
         .eq('mode', 'analyze')
@@ -806,7 +806,7 @@ export default async function handler(req: any, res: any) {
            finalImageUrls.push(...imageUrls); 
        }
 
-       let imageUrl = finalImageUrls[0] || '';
+       const imageUrl = finalImageUrls[0] || '';
         
        if (!imageUrl) {
            console.warn("No image returned", results);

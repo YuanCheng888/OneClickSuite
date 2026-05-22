@@ -44,18 +44,12 @@ const PricingPage: React.FC<PricingPageProps> = ({
   appLanguage = 'English',
   onSetLanguage
 }) => {
-  const [pricingMode, setPricingMode] = useState<'subscription' | 'points'>('subscription');
   const [purchasedPlans, setPurchasedPlans] = useState<Set<string>>(new Set());
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
   const t = translations[appLanguage].pricing;
 
   const hasTier = profile?.tier && profile.tier !== 'free';
-
-  useEffect(() => {
-    if (hasTier) {
-      setPricingMode('points');
-    }
-  }, [hasTier]);
+  const pricingMode: 'subscription' | 'points' = hasTier ? 'points' : 'subscription';
 
   const { handleCheckout } = useCreemCheckout({
     user,
@@ -75,32 +69,6 @@ const PricingPage: React.FC<PricingPageProps> = ({
       setProcessingPlan(null);
     }
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    checkPurchasedPlans();
-  }, [user]);
-
-  const checkPurchasedPlans = async () => {
-    if (!user || !supabase) return;
-    
-    // We need to map internal price IDs to tiers
-    // price_starter, price_pro, price_enterprise
-    const { data: orders } = await supabase
-        .from('orders')
-        .select('package_id')
-        .eq('user_id', user.id)
-        .eq('status', 'paid');
-    
-    if (orders) {
-        const purchased = new Set(orders.map(o => o.package_id));
-        setPurchasedPlans(purchased);
-    }
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const featuresIcons = [
       <Logo />, <Globe />, <Box />, <Zap />, <LayoutIcon />, <ImageIcon />, <Maximize />, <Cloud />
@@ -142,23 +110,21 @@ const PricingPage: React.FC<PricingPageProps> = ({
             </p>
           </div>
 
-          {/* Pricing Toggle */}
+          {/* Pricing Mode - 根据用户tier自动设置 */}
           <div className="flex justify-center mb-20 relative z-20">
             <div className="bg-white dark:bg-white/5 p-1.5 rounded-[20px] flex items-center border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-none">
-              <button 
-                onClick={() => setPricingMode('subscription')}
+              <div 
                 className={`px-10 py-3 rounded-2xl text-sm font-bold transition-all flex items-center gap-2 ${pricingMode === 'subscription' ? 'bg-primary-600 text-white shadow-lg' : 'text-foreground-muted dark:text-gray-400 hover:text-foreground'}`}
               >
                 <Crown size={16} />
                 {t.subPlans}
-              </button>
-              <button 
-                onClick={() => setPricingMode('points')}
+              </div>
+              <div 
                 className={`px-10 py-3 rounded-2xl text-sm font-bold transition-all flex items-center gap-2 ${pricingMode === 'points' ? 'bg-primary-600 text-white shadow-lg' : 'text-foreground-muted dark:text-gray-400 hover:text-foreground'}`}
               >
                 <Sparkles size={16} />
                 {t.buyCredits}
-              </button>
+              </div>
             </div>
           </div>
 

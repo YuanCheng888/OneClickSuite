@@ -264,7 +264,7 @@ export default async function handler(req: any, res: any) {
           // --- ATOMIC TRANSACTION VIA RPC ---
           console.log(`Processing Order via Atomic RPC for user ${userId}`);
                
-          let subId = data.subscription ? (typeof data.subscription === 'string' ? data.subscription : data.subscription.id) : null;
+          const subId = data.subscription ? (typeof data.subscription === 'string' ? data.subscription : data.subscription.id) : null;
           let periodStart = null;
           let periodEnd = null;
                     let subscriptionData: any = typeof data.subscription === 'object' ? data.subscription : null;

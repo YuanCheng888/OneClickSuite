@@ -1,17 +1,22 @@
-# OneClickSuite - AI 电商产品图一键生成
+<div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/YuanCheng888/OneClickSuite?style=social)
-![GitHub forks](https://img.shields.io/github/forks/YuanCheng888/OneClickSuite?style=social)
-![GitHub issues](https://img.shields.io/github/issues/YuanCheng888/OneClickSuite)
-![GitHub license](https://img.shields.io/github/license/YuanCheng888/OneClickSuite)
-![GitHub last commit](https://img.shields.io/github/last-commit/YuanCheng888/OneClickSuite)
-![GitHub contributors](https://img.shields.io/github/contributors/YuanCheng888/OneClickSuite)
-![npm version](https://img.shields.io/npm/v/oneclicksuite)
-![Node.js version](https://img.shields.io/badge/node-%3E%3D18.x-green)
+# OneClickSuite
+### AI 电商产品图一键生成平台
+**上传一张产品图，AI 自动生成完整产品图库 · 无需设计技能 · 节省 90% 成本**
+
+[![GitHub stars](https://img.shields.io/github/stars/YuanCheng888/OneClickSuite?style=social)](https://github.com/YuanCheng888/OneClickSuite)
+[![GitHub forks](https://img.shields.io/github/forks/YuanCheng888/OneClickSuite?style=social)](https://github.com/YuanCheng888/OneClickSuite)
+[![GitHub issues](https://img.shields.io/github/issues/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/issues)
+[![GitHub license](https://img.shields.io/github/license/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/blob/master/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/commits)
+[![GitHub contributors](https://img.shields.io/github/contributors/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/graphs/contributors)
+[![Node.js version](https://img.shields.io/badge/node-%3E%3D18.x-green)](https://nodejs.org/)
 
 🌐 **中文** | [English](README_EN.md)
 
-***
+</div>
+
+---
 
 ## 🎯 项目简介
 
@@ -25,7 +30,7 @@
 
 > ⚠️ **注意**: Demo 环境的 Gemini API Key 已过期，AI 生成功能暂时不可用，仅供界面预览。
 
-***
+---
 
 ## 📷 产品预览
 
@@ -37,15 +42,11 @@
 
 ### 多场景展示
 
-| 场景一                                           | 场景二                                           |
-| :-------------------------------------------- | :-------------------------------------------- |
-| ![Generated 2](public/images/generated-2.png) | ![Generated 3](public/images/generated-3.png) |
+| 场景一                                           | 场景二                                           | 场景三                                           | 场景四                                           |
+| :-------------------------------------------- | :-------------------------------------------- | :-------------------------------------------- | :-------------------------------------------- |
+| ![Generated 1](public/images/generated-1.png) | ![Generated 2](public/images/generated-2.png) | ![Generated 3](public/images/generated-3.png) | ![Generated 4](public/images/generated-4.png) |
 
-| 场景三                                           | 场景四                                           |
-| :-------------------------------------------- | :-------------------------------------------- |
-| ![Generated 4](public/images/generated-4.png) | ![Generated 5](public/images/generated-5.png) |
-
-***
+---
 
 ## 🖥️ 界面预览
 
@@ -94,7 +95,7 @@
 | 服务条款(Terms)   | ![Terms](public/images/screenshots/screenshot-terms.png)     |
 | 隐私政策(Privacy) | ![Privacy](public/images/screenshots/screenshot-privacy.png) |
 
-***
+---
 
 ## ✨ 核心功能
 
@@ -181,7 +182,7 @@ AI 自动切分 → 镜头序列(Shot Sequences)
 - **Stripe** - 备选支付方案，支持信用卡支付
 - 灵活的积分套餐和订阅计划
 
-***
+---
 
 ## 🚀 快速开始
 
@@ -213,7 +214,8 @@ vercel dev
 # 打开 http://localhost:3000
 ```
 
-### 环境变量配置
+<details>
+<summary><strong>环境变量配置</strong></summary>
 
 编辑 `.env` 文件，配置以下关键参数：
 
@@ -242,7 +244,10 @@ STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 ```
 
-### Stripe 配置说明
+</details>
+
+<details>
+<summary><strong>Stripe 配置说明</strong></summary>
 
 如需使用 Stripe 支付系统，请确保完成以下配置：
 
@@ -257,6 +262,8 @@ VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
    - `customer.subscription.updated`
    - `customer.subscription.deleted`
 
+</details>
+
 ### 部署到生产环境
 
 ```bash
@@ -267,7 +274,7 @@ npm run build
 vercel deploy --prod
 ```
 
-***
+---
 
 ## 📖 使用流程
 
@@ -282,7 +289,7 @@ Upload(上传产品图) → AI Analysis(AI智能分析) → Blueprint(生成创�
 5. **Rendering(AI生成图片)** - 确认方案后，AI批量生成高质量产品图片
 6. **Complete(完成)** - 在Creative Gallery中查看、编辑和下载生成的图片
 
-***
+---
 
 ## 🛠️ 技术栈
 
@@ -299,7 +306,7 @@ Upload(上传产品图) → AI Analysis(AI智能分析) → Blueprint(生成创�
 | 动画    | Framer Motion               | 12.x |
 | 图标    | Lucide React                | -    |
 
-***
+---
 
 ## 🗄️ Supabase 数据库设计
 
@@ -424,7 +431,7 @@ Upload(上传产品图) → AI Analysis(AI智能分析) → Blueprint(生成创�
 | mode_models | **公开读取**（前端需获取模型配置） | 仅 Service Role 可修改 |
 | orders | 用户仅可读取自己的订单 | 仅 Service Role 可创建/修改 |
 
-***
+---
 
 ## 🤝 贡献指南
 
@@ -455,19 +462,24 @@ Fork → 创建分支 → 提交更改 → 推送到分支 → 创建 PR
 | `test`     | 添加/修改测试 |
 | `chore`    | 构建/工具相关 |
 
-***
+---
 
 ## 📊 项目统计
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=YuanCheng888&repo=OneClickSuite&show_icons=true&theme=dark)
+| 指标 | 状态 |
+| :--- | :--- |
+| ⭐ Stars | [![GitHub stars](https://img.shields.io/github/stars/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/stargazers) |
+| 🍴 Forks | [![GitHub forks](https://img.shields.io/github/forks/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/network/members) |
+| 🐛 Issues | [![GitHub issues](https://img.shields.io/github/issues/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/issues) |
+| 📄 License | [![GitHub license](https://img.shields.io/github/license/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/blob/master/LICENSE) |
 
-***
+---
 
 ## 📝 许可证
 
 本项目采用 **MIT 许可证** - 详见 [LICENSE](LICENSE) 文件
 
-***
+---
 
 ## 🙏 致谢
 
@@ -480,10 +492,10 @@ Fork → 创建分支 → 提交更改 → 推送到分支 → 创建 PR
 - [Lucide React](https://lucide.dev/)
 - [Framer Motion](https://www.framer.com/motion/)
 
-***
+---
 
 ⭐ **如果您觉得这个项目有帮助，请给它一个星标！**
 
-***
+---
 
 > Made with ❤️ by YuanCheng888

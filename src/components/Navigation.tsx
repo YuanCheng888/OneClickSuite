@@ -59,7 +59,6 @@ const Navigation: React.FC<NavigationProps> = ({
     // Default to dark if no preference saved, or follow saved preference
     const shouldBeDark = savedTheme ? savedTheme === 'dark' : isSystemDark;
     
-    setIsDark(shouldBeDark);
     if (shouldBeDark) {
       document.documentElement.classList.add('dark');
     } else {

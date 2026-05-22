@@ -121,8 +121,11 @@ const LandingPage: React.FC<LandingPageProps> = ({
         <div className="max-w-6xl mx-auto mt-24 relative px-6 animate-in fade-in zoom-in-95 duration-1000 delay-500">
           <div className="relative aspect-[16/9] rounded-[40px] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl bg-white dark:bg-[#161b26]">
             <div 
-              className="w-full h-full bg-cover bg-center bg-fixed dark:opacity-80 transition-all duration-700"
-              style={{ backgroundImage: 'url("/images/screenshots/screenshot-landing.png")' }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ 
+                backgroundImage: 'url("/images/screenshots/screenshot-landing.png")',
+                backgroundAttachment: 'fixed'
+              }}
               role="img"
               aria-label="High-end sneaker studio render"
             />

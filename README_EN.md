@@ -1,17 +1,22 @@
-# OneClickSuite - AI-Powered E-commerce Product Image Generator
+<div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/YuanCheng888/OneClickSuite?style=social)
-![GitHub forks](https://img.shields.io/github/forks/YuanCheng888/OneClickSuite?style=social)
-![GitHub issues](https://img.shields.io/github/issues/YuanCheng888/OneClickSuite)
-![GitHub license](https://img.shields.io/github/license/YuanCheng888/OneClickSuite)
-![GitHub last commit](https://img.shields.io/github/last-commit/YuanCheng888/OneClickSuite)
-![GitHub contributors](https://img.shields.io/github/contributors/YuanCheng888/OneClickSuite)
-![npm version](https://img.shields.io/npm/v/oneclicksuite)
-![Node.js version](https://img.shields.io/badge/node-%3E%3D18.x-green)
+# OneClickSuite
+### AI-Powered E-commerce Product Image Generator
+**Upload one product photo, AI generates complete gallery · No design skills needed · Save 90% cost**
+
+[![GitHub stars](https://img.shields.io/github/stars/YuanCheng888/OneClickSuite?style=social)](https://github.com/YuanCheng888/OneClickSuite)
+[![GitHub forks](https://img.shields.io/github/forks/YuanCheng888/OneClickSuite?style=social)](https://github.com/YuanCheng888/OneClickSuite)
+[![GitHub issues](https://img.shields.io/github/issues/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/issues)
+[![GitHub license](https://img.shields.io/github/license/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/blob/master/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/commits)
+[![GitHub contributors](https://img.shields.io/github/contributors/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/graphs/contributors)
+[![Node.js version](https://img.shields.io/badge/node-%3E%3D18.x-green)](https://nodejs.org/)
 
 🌐 **English** | [中文](README.md)
 
-***
+</div>
+
+---
 
 ## 🎯 Project Introduction
 
@@ -25,7 +30,7 @@
 
 > ⚠️ **Note**: The Gemini API Key in the demo environment has expired. AI generation features are temporarily unavailable. For interface preview only.
 
-***
+---
 
 ## 📷 Product Preview
 
@@ -37,15 +42,11 @@
 
 ### Multi-Scene Display
 
-| Scene 1                                            | Scene 2                                            |
-| :----------------------------------------------- | :----------------------------------------------- |
-| ![Generated 2](public/images/generated-2.png) | ![Generated 3](public/images/generated-3.png) |
+| Scene 1                                            | Scene 2                                            | Scene 3                                            | Scene 4                                            |
+| :----------------------------------------------- | :----------------------------------------------- | :----------------------------------------------- | :----------------------------------------------- |
+| ![Generated 1](public/images/generated-1.png) | ![Generated 2](public/images/generated-2.png) | ![Generated 3](public/images/generated-3.png) | ![Generated 4](public/images/generated-4.png) |
 
-| Scene 3                                            | Scene 4                                            |
-| :----------------------------------------------- | :----------------------------------------------- |
-| ![Generated 4](public/images/generated-4.png) | ![Generated 5](public/images/generated-5.png) |
-
-***
+---
 
 ## 🖥️ Interface Preview
 
@@ -94,7 +95,7 @@
 | Terms of Service | ![Terms](public/images/screenshots/screenshot-terms.png)     |
 | Privacy Policy   | ![Privacy](public/images/screenshots/screenshot-privacy.png) |
 
-***
+---
 
 ## ✨ Core Features
 
@@ -181,7 +182,7 @@ Add/Delete Shots  → Freely add or delete shots
 - **Stripe** - Alternative payment solution, supports credit card payment
 - Flexible credit packages and subscription plans
 
-***
+---
 
 ## 🚀 Quick Start
 
@@ -213,7 +214,8 @@ vercel dev
 # Open http://localhost:3000
 ```
 
-### Environment Variables Configuration
+<details>
+<summary><strong>Environment Variables Configuration</strong></summary>
 
 Edit `.env` file and configure the following key parameters:
 
@@ -242,7 +244,10 @@ STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 ```
 
-### Stripe Configuration Instructions
+</details>
+
+<details>
+<summary><strong>Stripe Configuration Instructions</strong></summary>
 
 To use Stripe payment system, ensure the following configuration:
 
@@ -257,6 +262,8 @@ To use Stripe payment system, ensure the following configuration:
    - `customer.subscription.updated`
    - `customer.subscription.deleted`
 
+</details>
+
 ### Deploy to Production
 
 ```bash
@@ -267,7 +274,7 @@ npm run build
 vercel deploy --prod
 ```
 
-***
+---
 
 ## 📖 Usage Flow
 
@@ -282,7 +289,7 @@ Upload → AI Analysis → Blueprint → Rendering → Complete
 5. **Rendering** - After confirming the plan, AI batch generates high-quality product images
 6. **Complete** - View, edit, and download generated images in Creative Gallery
 
-***
+---
 
 ## 🛠️ Tech Stack
 
@@ -299,7 +306,7 @@ Upload → AI Analysis → Blueprint → Rendering → Complete
 | Animation      | Framer Motion                     | 12.x |
 | Icons          | Lucide React                      | -    |
 
-***
+---
 
 ## 🗄️ Supabase Database Schema
 
@@ -424,7 +431,7 @@ Execution flow:
 | mode_models | **Public read** (frontend needs to get model config) | Only Service Role can modify |
 | orders | Users can only read their own orders | Only Service Role can create/modify |
 
-***
+---
 
 ## 🤝 Contributing
 
@@ -455,19 +462,24 @@ Fork → Create Branch → Make Changes → Push to Branch → Create PR
 | `test`        | Add/modify test     |
 | `chore`       | Build/tool related    |
 
-***
+---
 
 ## 📊 Project Stats
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=YuanCheng888&repo=OneClickSuite&show_icons=true&theme=dark)
+| Metric | Status |
+| :--- | :--- |
+| ⭐ Stars | [![GitHub stars](https://img.shields.io/github/stars/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/stargazers) |
+| 🍴 Forks | [![GitHub forks](https://img.shields.io/github/forks/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/network/members) |
+| 🐛 Issues | [![GitHub issues](https://img.shields.io/github/issues/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/issues) |
+| 📄 License | [![GitHub license](https://img.shields.io/github/license/YuanCheng888/OneClickSuite)](https://github.com/YuanCheng888/OneClickSuite/blob/master/LICENSE) |
 
-***
+---
 
 ## 📝 License
 
 This project uses **MIT License** - See [LICENSE](LICENSE) file for details
 
-***
+---
 
 ## 🙏 Acknowledgments
 
@@ -480,10 +492,10 @@ Thanks to the following open source projects:
 - [Lucide React](https://lucide.dev/)
 - [Framer Motion](https://www.framer.com/motion/)
 
-***
+---
 
 ⭐ **If you find this project helpful, please give it a star!**
 
-***
+---
 
 > Made with ❤️ by YuanCheng888
