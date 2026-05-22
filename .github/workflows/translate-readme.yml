@@ -1,0 +1,161 @@
+name: Translate README to English
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install deep-translator tqdm
+
+      - name: Translate README
+        run: |
+          python << 'EOF'
+          import re
+          from pathlib import Path
+          from deep_translator import GoogleTranslator
+
+          # 读取中文README
+          readme_path = Path('README.md')
+          content = readme_path.read_text(encoding='utf-8')
+
+          # 翻译函数
+          def translate_text(text, max_length=4500):
+              if not text.strip():
+                  return text
+              
+              # 分割长文本
+              if len(text) > max_length:
+                  # 按行分割
+                  lines = text.split('\n')
+                  result = []
+                  current = []
+                  current_length = 0
+                  
+                  for line in lines:
+                      line_length = len(line)
+                      if current_length + line_length + 1 > max_length and current:
+                          # 翻译当前批次
+                          batch_text = '\n'.join(current)
+                          try:
+                              translated = GoogleTranslator(source='zh-CN', target='en').translate(batch_text)
+                              result.append(translated)
+                          except Exception as e:
+                              print(f"Translation error: {e}")
+                              result.append(batch_text)
+                          current = [line]
+                          current_length = line_length
+                      else:
+                          current.append(line)
+                          current_length += line_length + 1
+                  
+                  # 翻译最后一批
+                  if current:
+                      batch_text = '\n'.join(current)
+                      try:
+                          translated = GoogleTranslator(source='zh-CN', target='en').translate(batch_text)
+                          result.append(translated)
+                      except Exception as e:
+                          print(f"Translation error: {e}")
+                          result.append(batch_text)
+                  
+                  return '\n'.join(result)
+              else:
+                  try:
+                      return GoogleTranslator(source='zh-CN', target='en').translate(text)
+                  except Exception as e:
+                      print(f"Translation error: {e}")
+                      return text
+
+          # 保留代码块内容不翻译
+          code_blocks = []
+          def replace_code_block(match):
+              code_blocks.append(match.group(0))
+              return f'__CODE_BLOCK_{len(code_blocks)-1}__'
+
+          content_temp = re.sub(r'```[\s\S]*?```', replace_code_block, content)
+          content_temp = re.sub(r'`[^`]+`', replace_code_block, content_temp)
+
+          # 翻译非代码部分
+          lines = content_temp.split('\n')
+          translated_lines = []
+
+          for line in lines:
+              if '__CODE_BLOCK' in line:
+                  translated_lines.append(line)
+              elif line.strip().startswith('#'):
+                  # 翻译标题
+                  indent = len(line) - len(line.lstrip())
+                  title = line.lstrip()
+                  translated_title = translate_text(title)
+                  translated_lines.append(' ' * indent + translated_title)
+              elif line.strip().startswith('|'):
+                  # 翻译表格内容
+                  indent = len(line) - len(line.lstrip())
+                  translated_line = translate_text(line.strip())
+                  translated_lines.append(' ' * indent + translated_line)
+              elif line.strip() == '***':
+                  translated_lines.append(line)
+              elif line.strip().startswith('!['):
+                  # 保留图片链接
+                  translated_lines.append(line)
+              else:
+                  # 翻译普通文本
+                  translated = translate_text(line)
+                  translated_lines.append(translated)
+
+          translated_content = '\n'.join(translated_lines)
+
+          # 恢复代码块
+          for i, block in enumerate(code_blocks):
+              translated_content = translated_content.replace(f'__CODE_BLOCK_{i}__', block)
+
+          # 写入英文README
+          output_path = Path('README_EN.md')
+          output_path.write_text(translated_content, encoding='utf-8')
+          
+          print(f"Translation completed: README_EN.md")
+          print(f"Original size: {len(content)} chars")
+          print(f"Translated size: {len(translated_content)} chars")
+          EOF
+
+      - name: Commit and push README_EN.md
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 检查README_EN.md是否有变化
+          if git diff --exit-code README_EN.md > /dev/null 2>&1; then
+            echo "No changes to README_EN.md"
+          else
+            git add README_EN.md
+            git commit -m "docs: auto-translate README to English"
+            git push
+            echo "README_EN.md has been updated and pushed"
+          fi
+
+      - name: Display result
+        run: |
+          echo "✅ README_EN.md has been generated successfully!"
+          echo ""
+          echo "Files:"
+          ls -lh README*.md

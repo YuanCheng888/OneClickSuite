@@ -1,0 +1,63 @@
+{
+  "name": "oneclicksuite",
+  "version": "1.0.0",
+  "description": "One-click AI-powered marketing suite generator. Upload product images and generate complete marketing visual sets with creative briefs in seconds.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@google/genai": "^1.39.0",
+    "@supabase/supabase-js": "^2.94.0",
+    "clsx": "^2.1.1",
+    "creem_io": "^1.0.0",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^12.34.0",
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^24.10.13",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "postcss": "^8.5.6",
+    "rollup-plugin-visualizer": "^6.0.5",
+    "tailwindcss": "^3.4.19",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.18"
+  },
+  "keywords": [
+    "AI",
+    "marketing",
+    "e-commerce",
+    "listing",
+    "one-click",
+    "batch generation"
+  ],
+  "author": "YuanCheng888",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YuanCheng888/OneClickSuite.git"
+  }
+}
