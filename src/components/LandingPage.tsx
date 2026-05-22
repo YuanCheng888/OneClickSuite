@@ -123,7 +123,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
             <div 
               className="absolute inset-0 bg-cover bg-center"
               style={{ 
-                backgroundImage: 'url("/images/screenshots/screenshot-landing.png")',
+                backgroundImage: 'url("/images/generated-2.png")',
                 backgroundAttachment: 'fixed'
               }}
               role="img"
