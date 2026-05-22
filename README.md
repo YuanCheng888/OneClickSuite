@@ -89,11 +89,9 @@
 
 ### 法律文档
 
-| 功能模块           | 截图预览                                                         |
-| :------------- | :----------------------------------------------------------- |
-| 关于页(About)     | ![About](public/images/screenshots/screenshot-about.png)     |
-| 服务条款(Terms)   | ![Terms](public/images/screenshots/screenshot-terms.png)     |
-| 隐私政策(Privacy) | ![Privacy](public/images/screenshots/screenshot-privacy.png) |
+| 关于页(About)                                     | 服务条款(Terms)                                   | 隐私政策(Privacy)                                     |
+| :-------------------------------------------- | :-------------------------------------------- | :---------------------------------------------- |
+| ![About](public/images/screenshots/screenshot-about.png) | ![Terms](public/images/screenshots/screenshot-terms.png) | ![Privacy](public/images/screenshots/screenshot-privacy.png) |
 
 ---
 
